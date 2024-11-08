@@ -1,94 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audi and BMW Auto Garage</title>
-  <!-- Link to Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Link to custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Service Appointment</title>
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <h1>Car Service Appointment</h1>
+        <p>Schedule your car's next oil change and explore available models.</p>
+    </header>
 
-  <!-- Header -->
-  <header class="bg-dark text-white text-center py-3">
-    <h1>Audi and BMW Auto Garage</h1>
-    <p>Schedule your oil change with ease</p>
-  </header>
+     <!--User Information Form--> User Information Form
+    <section>
+        <h2>Enter Your Details</h2>
+        <form id="user-form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" required>
 
-  <!-- User Information Form -->
-  <section class="container my-4">
-    <h2>Enter Your Details</h2>
-    <form id="user-form">
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" required>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="last-name">Last Name</label>
-          <input type="text" class="form-control" id="last-name" required>
-        </div>
-      </div>
-    </form>
-  </section>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" required>
 
-  <!-- Car Model Display -->
-  <section class="container my-4">
-    <h2>Select a Car Model</h2>
-    <div class="row" id="car-models">
-      <!-- Example Car Model Card -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/150" class="card-img-top" alt="Audi Model">
-          <div class="card-body">
-            <h5 class="card-title">Audi A4</h5>
-          </div>
-        </div>
-      </div>
-      <!-- Add more car models as needed -->
-    </div>
-  </section>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </form>
+    </section>
 
-  <!-- Oil Change Scheduling -->
-  <section class="container my-4">
-    <h2>Schedule Your Oil Change</h2>
-    <form id="schedule-form">
-      <div class="form-group">
-        <label for="appointment-date">Choose a Date</label>
-        <input type="date" class="form-control" id="appointment-date" required>
-      </div>
-      <div class="form-group">
-        <label for="appointment-time">Choose a Time</label>
-        <input type="time" class="form-control" id="appointment-time" required>
-      </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">
-        Schedule Appointment
-      </button>
-    </form>
-  </section>
+    <!-- Car Model Display -->
+    <section>
+        <h2>Select a Car Model</h2>
+        <div id="car-models">
+            <!-- Example Car Model -->
+            <div class="car-model">
+                <img src="https://via.placeholder.com/150" alt="Car Model Image">
+                <h3>Audi A4</h3>
+            </div>
+            <!-- More car models can be added here -->
+        </div>
+    </section>
 
-  <!-- Confirmation Modal -->
-  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmationModalLabel">Appointment Confirmation</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Thank you, <span id="user-name"></span>!</p>
-          <p>Your oil change appointment for <span id="car-model"></span> is scheduled on <span id="appointment-date-confirm"></span> at <span id="appointment-time-confirm"></span>.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Oil Change Scheduling Form -->
+    <section>
+        <h2>Schedule Your Oil Change</h2>
+        <form id="schedule-form">
+            <label for="appointment-date">Choose a Date:</label>
+            <input type="date" id="appointment-date" required>
+
+            <label for="appointment-time">Choose a Time:</label>
+            <input type="time" id="appointment-time" required>
+
+            <button type="submit">Schedule Appointment</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Car Service. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
