@@ -22,6 +22,5 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
     }
     // Show the modal
-    const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-    modal.show();
+    document.getElementById('staticBackdrop').show();
 });
