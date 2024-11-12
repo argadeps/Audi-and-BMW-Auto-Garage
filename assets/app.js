@@ -21,6 +21,6 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
         // Adds user information to the local storage
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
     }
-    // Show the modal
+    // Shows the modal
     document.getElementById('staticBackdrop').show();
 });
