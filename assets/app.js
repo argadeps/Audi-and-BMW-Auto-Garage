@@ -42,7 +42,6 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
     // Validation and display modal if all inputs are filled
     if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput) {
-        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput}, ${firstNameInput}! We will email you at ${emailInput}.`;
 
         // Object to be stored in local storage
         const localInfo = {
@@ -53,6 +52,8 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
             time: timeInput,
         };
 
+        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput}, ${firstNameInput}! We will email you at ${emailInput}.`;
+
         // Save user information to local storage
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
     } else {
@@ -60,8 +61,7 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
     }
 
     // Show the modal
-    const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-    modal.show();
+    document.getElementById('staticBackdrop').show;
 });
 
 // Populate the time dropdown when the page loads
