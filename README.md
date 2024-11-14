@@ -14,7 +14,7 @@ Polished Look: Design a simple, clean interface with clear labels and good spaci
 User Info Input:
 Add fields for first and last names with real-time validation to ensure proper input.
 Car Models Display:
-Display Audi and BMW model images in a grid layout, with each image labeled with the model and brand.
+Display Audi and BMW model images in a dropdown menu, with each image labeled with the model and brand.
 Oil Change Scheduling:
 Include a form with a date and time picker to schedule an oil change.
 Add a prominent "Schedule" button to submit the form.
