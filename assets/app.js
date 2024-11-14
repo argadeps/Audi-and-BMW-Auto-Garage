@@ -33,12 +33,16 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
     // Format date as mm-dd-yyyy
     const formattedDate = dateInput
-        ? new Date(dateInput).toLocaleDateString('en-US', {
+    ? (() => {
+          const [year, month, day] = dateInput.split('-');
+          // Create the date object as local time
+          return new Date(year, month - 1, day).toLocaleDateString('en-US', {
               month: '2-digit',
               day: '2-digit',
               year: 'numeric',
-          })
-        : '';
+          });
+      })()
+    : '';
 
     // Validation and display modal if all inputs are filled
     if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput) {
@@ -62,6 +66,8 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
     // Show the modal
     document.getElementById('staticBackdrop').show;
+    console.log(dateInput);
+    console.log(formattedDate);
 });
 
 // Populate the time dropdown when the page loads
