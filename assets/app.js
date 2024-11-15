@@ -30,6 +30,7 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
     const emailInput = document.getElementById('email').value.trim();
     const dateInput = document.getElementById('appointment-date').value;
     const timeInput = document.getElementById('appointment-time').value;
+    const carModelInput = document.getElementById('carDropdown').textContent.trim();
 
     // Format date as mm-dd-yyyy
     const formattedDate = dateInput
@@ -45,7 +46,7 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
     : '';
 
     // Validation and display modal if all inputs are filled
-    if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput) {
+    if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput && carModelInput !== 'Choose Your Car Model Please') {
 
         // Object to be stored in local storage
         const localInfo = {
@@ -54,9 +55,10 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
             email: emailInput,
             date: formattedDate,
             time: timeInput,
+            carModel: carModelInput
         };
 
-        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput}, ${firstNameInput}! We will email you at ${emailInput}.`;
+        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput} for your ${carModelInput}, ${firstNameInput}! We will email you at ${emailInput}.`;
 
         // Save user information to local storage
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
@@ -68,6 +70,18 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
     document.getElementById('staticBackdrop').show;
     console.log(dateInput);
     console.log(formattedDate);
+});
+
+// Event listener for car model selection
+document.getElementById('carDropdownMenu').addEventListener('click', function(event) {
+    if (event.target && event.target.matches('.dropdown-item')) {
+        event.preventDefault(); // Prevent scrolling to the top
+        const selectedCarModel = event.target.textContent.trim();
+        const carIcon = event.target
+        
+        // Update the car dropdown button text
+        document.getElementById('carDropdown').innerHTML = carIcon.innerHTML;
+    }
 });
 
 // Populate the time dropdown when the page loads
