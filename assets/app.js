@@ -60,6 +60,7 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
         // Save user information to local storage
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
+        lastAppointment();
     } else {
         document.getElementById('modal-body').textContent = 'Please fill out all the required fields.';
     }
@@ -72,3 +73,11 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
 // Populate the time dropdown when the page loads
 document.addEventListener('DOMContentLoaded', populateTimeDropdown);
+
+function lastAppointment() {
+    const localInfo = JSON.parse(localStorage.getItem('localInfo'));
+    if (localInfo && localInfo.first) {
+        document.getElementById('lastAppointment').innerHTML = localInfo.first;
+    }
+}
+lastAppointment();
