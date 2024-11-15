@@ -58,7 +58,7 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
             carModel: carModelInput
         };
 
-        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput} for your ${carModelInput}, ${firstNameInput}! We will email you at ${emailInput}.`;
+        document.getElementById('modal-body').innerHTML = `Thank you for scheduling your appointment on ${formattedDate} at ${timeInput} for your ${carModelInput}, ${firstNameInput}! We will email you a confirmation at ${emailInput}.`;
 
         // Save user information to local storage
         localStorage.setItem('localInfo', JSON.stringify(localInfo));
