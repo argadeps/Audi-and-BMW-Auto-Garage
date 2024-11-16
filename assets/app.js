@@ -86,3 +86,12 @@ document.getElementById('carDropdownMenu').addEventListener('click', function(ev
 
 // Populate the time dropdown when the page loads
 document.addEventListener('DOMContentLoaded', populateTimeDropdown);
+
+// Retrieves the user's information from the local storage to be displayed on the page
+function lastAppointment() {
+    const localInfo = JSON.parse(localStorage.getItem('localInfo'));
+    if (localInfo && localInfo.first) {
+        document.getElementById('lastAppointment').innerHTML = localInfo.first;
+    }
+}
+lastAppointment();
