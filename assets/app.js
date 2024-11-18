@@ -22,7 +22,7 @@ function populateTimeDropdown() {
 }
 
 // Handle form submission
-document.getElementById('schedule-form').addEventListener('submit', function(event) {
+document.getElementById('schedule-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const firstNameInput = document.getElementById('first-name').value.trim();
@@ -34,16 +34,16 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 
     // Format date as mm-dd-yyyy
     const formattedDate = dateInput
-    ? (() => {
-          const [year, month, day] = dateInput.split('-');
-          // Create the date object as local time
-          return new Date(year, month - 1, day).toLocaleDateString('en-US', {
-              month: '2-digit',
-              day: '2-digit',
-              year: 'numeric',
-          });
-      })()
-    : '';
+        ? (() => {
+            const [year, month, day] = dateInput.split('-');
+            // Create the date object as local time
+            return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: 'numeric',
+            });
+        })()
+        : '';
 
     // Validation and display modal if all inputs are filled
     if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput && carModelInput !== 'Choose Your Car Model Please') {
@@ -73,12 +73,12 @@ document.getElementById('schedule-form').addEventListener('submit', function(eve
 });
 
 // Event listener for car model selection
-document.getElementById('carDropdownMenu').addEventListener('click', function(event) {
+document.getElementById('carDropdownMenu').addEventListener('click', function (event) {
     if (event.target && event.target.matches('.dropdown-item')) {
         event.preventDefault(); // Prevent scrolling to the top
         const selectedCarModel = event.target.textContent.trim();
         const carIcon = event.target
-        
+
         // Update the car dropdown button text
         document.getElementById('carDropdown').innerHTML = carIcon.innerHTML;
     }
@@ -89,9 +89,15 @@ document.addEventListener('DOMContentLoaded', populateTimeDropdown);
 
 // Retrieves the user's information from the local storage to be displayed on the page
 function lastAppointment() {
-    const localInfo = JSON.parse(localStorage.getItem('localInfo'));
-    if (localInfo && localInfo.first) {
-        document.getElementById('lastAppointment').innerHTML = localInfo.first;
+    if ('localInfo' in localStorage) {
+        document.getElementById('appointmentDisplay').style = "display:inline"
+        const localInfo = JSON.parse(localStorage.getItem('localInfo'));
+        document.getElementById('lastAppointmentDate').innerHTML = localInfo.date + " " + localInfo.time;
+        document.getElementById('lastAppointmentName').innerHTML = localInfo.first + " " + localInfo.last;
+        document.getElementById('lastAppointmentModel').innerHTML = localInfo.carModel;
+    } else {
+        document.getElementById('appointmentDisplay').style = "display:none"
+
     }
 }
 lastAppointment();
