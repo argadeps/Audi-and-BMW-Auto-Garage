@@ -3,9 +3,9 @@ function populateTimeDropdown() {
     const timeDropdown = document.getElementById('appointment-time');
     const timeIncrements = [0, 15, 30, 45]; // 15-minute increments
 
-    // Define the range: Start at 8 AM, end at 8 PM
-    const startHour = 8;
-    const endHour = 20; // 8 PM in 24-hour format
+    // Define the range: Start at 9AM, end at 4:45 PM
+    const startHour = 7;
+    const endHour = 16; // 5 PM in 24-hour format
 
     for (let hour = startHour; hour <= endHour; hour++) {
         for (let increment of timeIncrements) {
