@@ -46,7 +46,7 @@ document.getElementById('schedule-form').addEventListener('submit', function (ev
         : '';
 
     // Validation and display modal if all inputs are filled
-    if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput && carModelInput !== 'Choose Your Car Model Please') {
+    if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput && carModelInput !== 'Audi & BMW Model Selector') {
 
         // Object to be stored in local storage
         const localInfo = {
@@ -70,6 +70,13 @@ document.getElementById('schedule-form').addEventListener('submit', function (ev
     document.getElementById('staticBackdrop').show;
     console.log(dateInput);
     console.log(formattedDate);
+
+    // Clear the form fields after submission
+    document.getElementById('schedule-form').reset();
+    document.getElementById('first-name').value = '';
+    document.getElementById('last-name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('carDropdown').textContent = 'Audi & BMW Model Selector';
 });
 
 // Event listener for car model selection
