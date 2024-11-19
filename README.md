@@ -29,3 +29,4 @@ Real-Time Feedback: Provide immediate feedback to users for validation errors an
 5. Code Quality
 Organized Structure: Use folders for css, js, and images, and follow best practices for naming conventions.
 Clear Comments: Add brief comments to explain important parts of the code.
+![alt text](../Audi-and-BMW-Auto-Garage/images/image.png)
