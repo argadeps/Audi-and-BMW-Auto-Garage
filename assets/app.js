@@ -44,7 +44,17 @@ document.getElementById('schedule-form').addEventListener('submit', function (ev
             });
         })()
         : '';
+    
+    // Validation to ensure the selected date is not in the past
+    const selectedDate = new Date(dateInput);
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0); // Set the time to the start of the day
 
+    if (selectedDate < currentDate) {
+        document.getElementById('modal-body').textContent = 'Please select a valid date for your appointment.';
+        document.getElementById('staticBackdrop').show;
+        return;
+    }
     // Validation and display modal if all inputs are filled
     if (firstNameInput && lastNameInput && emailInput && dateInput && timeInput && carModelInput !== 'Audi & BMW Model Selector') {
 
